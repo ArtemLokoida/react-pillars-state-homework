@@ -28,6 +28,48 @@
   color: #61dafb;
 }
 
+#carousel {
+    position: relative;
+    max-width: 50%;
+    min-width: auto;
+    margin: 0px auto;
+}
+
+#goToPreviousImage,
+#goToNextImage{
+    position: absolute;
+    top: 0px;
+    cursor: pointer;
+    width: 33%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 50px;
+    color: #fff;
+    opacity: 0.5;
+    text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+#goToPreviousImage {
+    padding-left: 20px;
+    left: 0px;
+    justify-content: left;
+}
+
+#goToNextImage {
+    padding-right: 20px;
+    right: 0px;
+    justify-content: right;
+}
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
