@@ -32,7 +32,7 @@ const RangeInput = ({min, max, ...otherProps}) => {
 
 // LoginForm
 
-const LoginForm = ({onLogin = () => console.log('onLogin does\'nt work')}) => {
+const LoginForm = ({onLogin}) => {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
 
@@ -111,6 +111,7 @@ const Thumbnails = ({images, current, onChange}) => {
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
             {images.map((image, index) => (
                 <img
+                    key={index}
                     src={image}
                     style={{ width: '50px', height: '50px', margin: '0 5px', border: index === current ? '2px solid red' : 'none', cursor: 'pointer' }}
                     onClick={() => onChange(index)}
@@ -140,7 +141,7 @@ const Pagination = ({max, render}) => {
     const pages = []
 
     for(let i = 1; i <= max; i++){
-        pages.push(<button disabled={page === i} onClick={() => setPage(i)}>{i}</button>)
+        pages.push(<button key={i} disabled={page === i} onClick={() => setPage(i)}>{i}</button>)
     }
 
     return(
@@ -178,10 +179,11 @@ function App() {
             <PasswordConfirm min={2}/>
             <hr/>
             <Carousel images={["https://ukrainetrek.com/blog/wp-content/uploads/2016/12/top-10-photos-ukrainian-nature-2016-1.jpg",
-          "https://ukrainetrek.com/blog/wp-content/uploads/2016/12/top-10-photos-ukrainian-nature-2016-2.jpg",
-          "https://ukrainetrek.com/blog/wp-content/uploads/2016/12/top-10-photos-ukrainian-nature-2016-3.jpg",
-          "https://ukrainetrek.com/blog/wp-content/uploads/2016/12/top-10-photos-ukrainian-nature-2016-4.jpg",
-          "https://ukrainetrek.com/blog/wp-content/uploads/2016/12/top-10-photos-ukrainian-nature-2016-5.jpg"]} />
+                "https://ukrainetrek.com/blog/wp-content/uploads/2016/12/top-10-photos-ukrainian-nature-2016-2.jpg",
+                "https://ukrainetrek.com/blog/wp-content/uploads/2016/12/top-10-photos-ukrainian-nature-2016-3.jpg",
+                "https://ukrainetrek.com/blog/wp-content/uploads/2016/12/top-10-photos-ukrainian-nature-2016-4.jpg",
+                "https://ukrainetrek.com/blog/wp-content/uploads/2016/12/top-10-photos-ukrainian-nature-2016-5.jpg"]}
+            />
             <hr/>
             <Pagination max={10} render={Content} />
             <Pagination max={16} render={Color} />
